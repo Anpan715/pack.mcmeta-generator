@@ -1,0 +1,255 @@
+:root {
+  --bg-dark: #121212;
+  --text-dark: #ddd;
+  --bg-light: #f5f5f5;
+  --text-light: #111;
+  --accent: #0078d7;
+  --accent-hover: #005ea2;
+  --button-primary: var(--accent);
+  --button-primary-hover: var(--accent-hover);
+  --radius: 4px;
+  --font-size-base: 1rem;
+}
+
+@media (prefers-color-scheme: light) {
+  body:not(.dark):not(.light) {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* ヘッダー */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #424242;
+}
+body.light header {
+  background-color: #cccccc;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+#modeToggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  user-select: none;
+}
+
+/* メイン */
+main {
+  flex-grow: 1;
+  display: flex;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 入力 */
+.input-area {
+  max-width: 360px;
+  flex: 1 1 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+select,
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid #444;
+  background-color: #1b1b1b;
+  color: #fff;
+  font-size: var(--font-size-base);
+  resize: vertical;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: #66afe9;
+  box-shadow: 0 0 4px rgba(102, 175, 233, 0.6);
+}
+
+body.light select,
+body.light input[type="text"],
+body.light textarea {
+  background-color: #fff;
+  color: #111;
+  border-color: #ccc;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+#generateBtn {
+  background-color: var(--button-primary);
+  color: white;
+  border: none;
+}
+#generateBtn:hover {
+  background-color: var(--button-primary-hover);
+}
+
+#downloadBtn {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  margin-top: 0.5rem;
+}
+#downloadBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 出力 */
+.output-area {
+  max-width: 720px;
+  flex: 1 1 720px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+
+.code-container {
+  position: relative;
+  width: 100%;
+}
+
+pre {
+  margin: 0;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  background-color: #1e1e1e;
+  color: #cfcfcf;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 320px;
+}
+body.light pre {
+  background-color: #eaeaea;
+  color: #222;
+}
+
+#copyBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #cfcfcf;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+#copyBtn:hover,
+#copyBtn:focus {
+  background-color: rgba(255 255 255 / 0.15);
+  color: #fff;
+}
+body.light #copyBtn {
+  color: #222;
+}
+body.light #copyBtn:hover,
+body.light #copyBtn:focus {
+  background-color: rgba(0 0 0 / 0.1);
+  color: #000;
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  background-color: #2a2a2a;
+  color: #eee;
+}
+body.light footer {
+  background-color: #afafaf;
+  color: #000000;
+}
+footer .footer-label {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+footer .footer-link {
+  margin: 0.25rem 0 0 0;
+}
+footer a {
+  color: #62abff;
+  text-decoration: none;
+  font-weight: 500;
+}
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 900px) {
+  main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .output-area {
+    justify-content: center;
+    margin-top: 0;
+    padding-left: 0;
+  }
+}

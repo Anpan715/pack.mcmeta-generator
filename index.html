@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pack.mcmetaジェネレーター</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+  <header>
+    <h1>pack.mcmetaジェネレーター</h1>
+    <button
+      id="modeToggle"
+      aria-label="ダークモード切替"
+      title="ダークモード切替"
+      type="button"
+    >🌙</button>
+  </header>
+
+  <main>
+    <section class="input-area">
+      <form id="mcmetaForm" onsubmit="return false;">
+        <label for="typeSelect">タイプ</label>
+        <select id="typeSelect" required></select>
+
+        <label for="versionSelect">Minecraftバージョン</label>
+        <select id="versionSelect" required>
+          <option disabled selected>バージョンを選択</option>
+        </select>
+
+        <label for="descriptionInput">説明（省略可）</label>
+        <textarea id="descriptionInput" rows="3" placeholder="説明を入力してください"></textarea>
+
+        <label for="authorInput">作成者（省略可）</label>
+        <input type="text" id="authorInput" placeholder="作成者名を入力" />
+
+        <button id="generateBtn" type="submit">生成</button>
+        <button id="downloadBtn" type="button">ダウンロード</button>
+      </form>
+    </section>
+
+    <section class="output-area">
+      <div class="code-container">
+        <button id="copyBtn" aria-label="コードをコピー" type="button">コピー</button>
+        <pre><code id="outputCode" class="json" spellcheck="false"></code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-label">問い合わせ先</p>
+    <p class="footer-link">
+      <a href="https://x.com/anpan_april4" target="_blank" rel="noopener noreferrer">作者のX</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
