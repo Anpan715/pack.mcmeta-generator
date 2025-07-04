@@ -34,6 +34,7 @@ const packFormatMap = {
     { version: "1.21.4", pack_format: 46 },
     { version: "1.21.5", pack_format: 55 },
     { version: "1.21.6", pack_format: 63 },
+    { version: "1.21.7", pack_format: 64 },
   ],
   data: [
     { version: "1.13–1.14.4", pack_format: 4 },
@@ -52,7 +53,8 @@ const packFormatMap = {
     { version: "1.21.2–1.21.3", pack_format: 57 },
     { version: "1.21.4", pack_format: 61 },
     { version: "1.21.5", pack_format: 71 },
-    { version: "1.21.6", pack_format: 81 },
+    { version: "1.21.6", pack_format: 80 },
+    { version: "1.21.7", pack_format: 81 },
   ],
 };
 
